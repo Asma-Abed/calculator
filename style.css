@@ -1,0 +1,148 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+}
+
+.calculator-container {
+  padding: 0.2rem;
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background-color: #d4d4d4;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.display {
+  display: flex;
+  justify-content: flex-end;
+  padding: 3rem;
+  background-color: #d1d1f5;
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.2rem;
+}
+
+.number,
+.equal,
+.operation,
+.clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  background-color: #fff;
+  cursor: default;
+  transition: all 0.2s;
+}
+.operation {
+  background-color: #f9e9ec;
+}
+
+.equal {
+  grid-row: 5 / span 1;
+  grid-column: 3 / span 2;
+  background-color: #d1d1f5;
+}
+
+.equal:hover {
+  background-color: #b0b9fc;
+}
+.zero {
+  grid-row: 5 / span 1;
+  grid-column: 2 / span 1;
+}
+.dot {
+  grid-row: 5 / span 1;
+  grid-column: 1 / span 1;
+}
+.one {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 1;
+}
+.two {
+  grid-row: 4 / span 1;
+  grid-column: 2 / span 1;
+}
+.three {
+  grid-row: 4 / span 1;
+  grid-column: 3 / span 1;
+}
+.four {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+}
+.five {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
+}
+.six {
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+}
+.seven {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+}
+.eight {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+}
+.nine {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+}
+.plus {
+  grid-row: 4 / span 1;
+  grid-column: 4 / span 1;
+}
+.minus {
+  grid-row: 3 / span 1;
+  grid-column: 4 / span 1;
+}
+.multiply {
+  grid-row: 2 / span 1;
+  grid-column: 4 / span 1;
+}
+.divide {
+  grid-row: 1 / span 1;
+  grid-column: 4 / span 1;
+}
+.clear-e {
+  grid-row: 1 / span 1;
+  grid-column: 3 / span 1;
+}
+.clear-all {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 2;
+  background-color: #f9e9ec;
+}
+
+.clear-all:hover,
+.operation:hover {
+  background-color: #f2cfd5;
+}
+.number:hover,
+.clear-e:hover {
+  background-color: #f6f6f3;
+}
