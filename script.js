@@ -3,17 +3,19 @@ const display = document.querySelector('.display');
 const btns = document.querySelector('.btns');
 
 const calculate = (firstNumber, operator, SecondNumber) => {
-  let result = '';
-  if (operator === 'add') {
-    result = parseFloat(firstNumber) + parseFloat(SecondNumber);
-  } else if (operator === 'substruct') {
-    result = parseFloat(firstNumber) - parseFloat(SecondNumber);
-  } else if (operator === 'multiply') {
-    result = parseFloat(firstNumber) * parseFloat(SecondNumber);
-  } else if (operator === 'divide') {
-    result = parseFloat(firstNumber) / parseFloat(SecondNumber);
-  }
-  return result;
+  const firsNum = parseFloat(firstNumber);
+  const SecNum = parseFloat(SecondNumber);
+  if (operator === 'add') return firsNum + SecNum;
+  if (operator === 'subtract') return firsNum - SecNum;
+  if (operator === 'multiply') return firsNum * SecNum;
+  if (operator === 'divide') return firsNum / SecNum;
+};
+
+const clearState = () => {
+  calculator.dataset.firstNum = '';
+  calculator.dataset.modSecondNum = '';
+  calculator.dataset.operator = '';
+  calculator.dataset.previousNumKey = '';
 };
 
 btns.addEventListener('click', (e) => {
@@ -27,20 +29,18 @@ btns.addEventListener('click', (e) => {
     if (displayedNum === '0' || previousNumKey === 'operator') {
       display.textContent = keyContent;
     } else if (previousNumKey === 'equal') {
-      calculator.dataset.firstNum = '';
-      calculator.dataset.modSecondNum = '';
-      calculator.dataset.operator = '';
-      calculator.dataset.previousNumKey = '';
+      clearState();
       display.textContent = keyContent;
     } else {
       display.textContent = displayedNum + keyContent;
     }
+
     calculator.dataset.previousNumKey = 'number';
   }
 
   if (
     type === 'add' ||
-    type === 'substruct' ||
+    type === 'subtract' ||
     type === 'multiply' ||
     type === 'divide'
   ) {
@@ -67,12 +67,8 @@ btns.addEventListener('click', (e) => {
 
   if (type === 'clear') {
     if (key.textContent === 'C') {
-      calculator.dataset.firstNum = '';
-      calculator.dataset.modSecondNum = '';
-      calculator.dataset.operator = '';
-      calculator.dataset.previousNumKey = '';
+      clearState();
     }
-
     display.textContent = 0;
     calculator.dataset.previousNumKey = 'clear';
   }
@@ -87,10 +83,7 @@ btns.addEventListener('click', (e) => {
     } else if (previousNumKey === 'operator') {
       display.textContent = '0.';
     } else if (previousNumKey === 'equal') {
-      calculator.dataset.firstNum = '';
-      calculator.dataset.modSecondNum = '';
-      calculator.dataset.operator = '';
-      calculator.dataset.previousNumKey = '';
+      clearState();
       display.textContent = '0.';
     }
 
